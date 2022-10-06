@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import is_password_usable, make_password, check
 from django.contrib.auth.models import Group
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django_mqtt.protocol import (
     TOPIC_BEGINNING_DOLLAR,
     TOPIC_SEP,

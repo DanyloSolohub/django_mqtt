@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 from django.contrib import admin, messages
 from django.contrib.admin.options import IS_POPUP_VAR
 from django.contrib.admin.utils import unquote
@@ -7,7 +7,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.html import escape
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters
@@ -34,8 +34,8 @@ class AclAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         return [
-           url(
-                r'^(.+)/password/$',
+           path(
+                r'password/',
                 self.admin_site.admin_view(self.user_change_password),
                 name='django_mqtt_acl_password_change',
             ),
@@ -48,7 +48,7 @@ class AclAdmin(admin.ModelAdmin):
         acl = self.get_object(request, unquote(object_id))
         if acl is None:
             raise Http404(_('%(name)s object with primary key %(key)r does not exist.') % {
-                'name': force_text(self.model._meta.verbose_name),
+                'name': force_str(self.model._meta.verbose_name),
                 'key': escape(object_id),
             })
         if request.method == 'POST':

@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
-from django.utils.encoding import force_text
-from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import force_str
+from django.utils.translation import gettext_lazy as _
 from django_mqtt.protocol import (
     MQTT_CLIENT_ID_RE,
     MQTT_TOPIC_RE,
@@ -27,7 +27,7 @@ class ClientIdValidator(object):
         """
         if self.valid_empty and len(value) == 0:
             return
-        found = self.regex.search(force_text(value))
+        found = self.regex.search(force_str(value))
         if not found:
             raise ValidationError(self.message, code=self.code)
         cli = found.group('client')
@@ -61,7 +61,7 @@ class TopicValidator(object):
         """
             Validates that the input matches with valid client id, otherwise raises ValidationError.
         """
-        topic = force_text(value)
+        topic = force_str(value)
         if self.not_wildcards and self.only_wildcards:
             raise ValidationError(self.messages['wrong_wildcards'], code='wrong_wildcards')
         elif WILDCARD_MULTI_LEVEL in topic or WILDCARD_SINGLE_LEVEL in topic:  # Is wildcard?

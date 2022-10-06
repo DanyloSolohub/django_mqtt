@@ -2,7 +2,7 @@ import ssl
 
 import paho.mqtt.client as mqtt
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django_mqtt.protocol import MQTT_QoS0, MQTT_QoS1, MQTT_QoS2
 
 PROTO_MQTT_CONN_OK = mqtt.CONNACK_ACCEPTED
