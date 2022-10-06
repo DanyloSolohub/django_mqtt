@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
 from django.core.management.base import BaseCommand, CommandError
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from django_mqtt.publisher.models import Client, Data
 from django_mqtt.models import Topic
