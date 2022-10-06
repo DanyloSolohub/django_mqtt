@@ -21,6 +21,7 @@ setup(name='django-mqtt',
       ],
       packages=[
           'django_mqtt',
+          'django_mqtt.migrations',
           'django_mqtt.mosquitto',
           'django_mqtt.mosquitto.auth_plugin',
           'django_mqtt.publisher',
