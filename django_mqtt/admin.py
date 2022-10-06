@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.encoding import force_str
 from django.utils.html import escape
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.translation import gettext, gettext_lazy as _
 from django.views.decorators.debug import sensitive_post_parameters
 
 from django_mqtt import models
