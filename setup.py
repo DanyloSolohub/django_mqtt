@@ -1,4 +1,5 @@
 from ez_setup import use_setuptools
+
 use_setuptools()
 from setuptools import setup
 
@@ -25,6 +26,7 @@ setup(name='django-mqtt',
           'django_mqtt.mosquitto',
           'django_mqtt.mosquitto.auth_plugin',
           'django_mqtt.publisher',
+          'django_mqtt.publisher.migrations',
           'django_mqtt.publisher.management',
           'django_mqtt.publisher.management.commands'
       ])
